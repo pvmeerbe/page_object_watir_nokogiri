@@ -1,0 +1,3 @@
+require 'page_object/platforms/watir_nokogiri_webdriver'
+require 'page_object/platforms/watir_nokogiri_webdriver/page_object'
+require 'page_object/platforms/watir_nokogiri_webdriver/element'

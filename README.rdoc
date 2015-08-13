@@ -1,0 +1,39 @@
+= page_object_watir_nokogiri
+
+This gem was designed as an extension of the page-objec gem (https://github.com/cheezy/page-object).
+It adds support of WatirNokogiri as a platform allowing re-use of page objects between rspec feature tests via selenium or watir webdriver & rspec request tests where no application is running. In the later case the HTML pages are provided to page object using rack response object and WatirNokogori.
+
+As a result the following can be recycled between rspec feature and rspec request tests:
+  * mapped elements
+  * code to interprete or read content on the page (example listings or tables or even custom widgets)
+  * ...
+
+== Contributing to page_object_watir_nokogiri
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
+* Fork the project.
+* Start a feature/bugfix branch.
+* Commit and push until you are happy with your contribution.
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+
+== Example
+Starting from rack response object :
+
+my_page = MyPageObject.new( WatirNokogiri::Document.new(response.body) )
+expect(my_page.first_name).to eql 'koekoek'
+
+or
+
+@browser = WatirNokogiri::Document.new(response.body)
+my_page = on_page(MyPageObject)
+expect(my_page.first_name).to eql 'koekoek'
+
+
+== Copyright
+
+Copyright (c) 2015 pvmeerbe. See LICENSE.txt for
+further details.
+
