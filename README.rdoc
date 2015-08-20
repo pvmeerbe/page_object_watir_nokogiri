@@ -22,14 +22,14 @@ As a result the following can be recycled between rspec feature and rspec reques
 == Example
 Starting from rack response object :
 
-my_page = MyPageObject.new( WatirNokogiri::Document.new(response.body) )
-expect(my_page.first_name).to eql 'koekoek'
+    my_page = MyPageObject.new( WatirNokogiri::Document.new(response.body) )
+    expect(my_page.first_name).to eql 'koekoek'
 
 or
 
-@browser = WatirNokogiri::Document.new(response.body)
-my_page = on_page(MyPageObject)
-expect(my_page.first_name).to eql 'koekoek'
+    @browser = WatirNokogiri::Document.new(response.body)
+    my_page = on_page(MyPageObject)
+    expect(my_page.first_name).to eql 'koekoek'
 
 
 == Copyright
